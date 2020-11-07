@@ -2,11 +2,19 @@
 <html lang="ja">
 
 <head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/lity/1.6.6/lity.css' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lity/1.6.6/lity.js'></script>
+    <link rel="stylesheet" href="css/lity.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/lity.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="indec2.css">
     <title>Document</title>
+
 </head>
 
 <body class="is-slide" id="page-animate">
@@ -15,6 +23,21 @@
         <div class="gu-">
             <li id="gu_btn">RUN</li>
         </div>
+        <!-- movie test -->
+        <!-- ジャンケンの結果からの動画 -->
+        <p><a href="../ラグビー/movie/ハイタックル.mp4" data-lity="data-lity">動画を見る</a></p>
+        <video id="movie1" controls width="100%" height="300%" autoplay muted></video>
+        <video id="movie2" src="../ラグビー/movie/Golden - 48569.mp4" controls width="320" height="240" autoplay
+            muted></video>
+        <video id="movie3" src="../ラグビー/movie/Bird - 46026.mp4" controls width="320" height="240" autoplay
+            muted></video>
+        <video id="movie4" src="../ラグビー/movie/Creux De Van - 45150.mp4" controls width="320" height="240" autoplay
+            muted></video>
+        <video id="movie5" src="../ラグビー/movie/Golden - 48569.mp4" controls width="320" height="240" autoplay
+            muted></video>
+        <video id="movie6" src="../ラグビー/movie/Bird - 46026.mp4" controls width="320" height="240" autoplay
+            muted></video>
+
         <div class="enemy" id="com_hand">相手は？</div>
         <div class="enemy" id="judgement">結果は？</div>
     </header>
@@ -32,6 +55,40 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+        jQuery(function ($) {
+            var movie = document.getElementById("movie1");
+            movie.controls = false;
+        });
+        jQuery(function ($) {
+            var movie = document.getElementById("movie2");
+            movie.controls = false;
+        });
+        jQuery(function ($) {
+            var movie = document.getElementById("movie3");
+            movie.controls = false;
+        });
+        jQuery(function ($) {
+            var movie = document.getElementById("movie4");
+            movie.controls = false;
+        });
+        jQuery(function ($) {
+            var movie = document.getElementById("movie5");
+            movie.controls = false;
+        });
+        jQuery(function ($) {
+            var movie = document.getElementById("movie6");
+            movie.controls = false;
+        });
+
+        let count = 0;
+
+        document.getElementById("movie1").style.display = "none";
+        document.getElementById("movie2").style.display = "none";
+        document.getElementById("movie3").style.display = "none";
+        document.getElementById("movie4").style.display = "none";
+        document.getElementById("movie5").style.display = "none";
+        document.getElementById("movie6").style.display = "none";
+
         /*設定１*/
         // 画面が読み込まれた時、is-slideを外し、アニメーションさせる
         $(window).on('load', function () {
@@ -56,8 +113,8 @@
             });
 
         });
-    </script>
-    <script>
+        // document.getElementById("movie").src = "../ラグビー/movie/Creux De Van - 45150.mp4";
+
         /*ジャンケンのscript*/
         $(function () {
             const result = ['グー', 'チョキ', 'パー'];
@@ -68,14 +125,20 @@
                 //コンピューターの手
                 $('#com_hand').text('enemy:' + result[rand]);
                 if (rand == 0) {
-                    $('#judgement').text('drow');
-                    console.log('drow');
+                    count = count + 1;
+                    console.log(count)
+                    // あいこの時
+                    document.getElementById("movie1").style.display = "block";
+                    if (count == 3) {
+                        // あいこが３回続いた時
+                        document.getElementById("movie1").style.display = "block";
+                    }
                 } else if (rand == 1) {
-                    $('#judgement').text('win');
-                    console.log('win');
+                    // 勝ちの時
+                    document.getElementById("movie2").style.display = "block";
                 } else if (rand == 2) {
-                    $('#judgement').text('lose');
-                    console.log('lose');
+                    // 負けの時
+                    document.getElementById("movie3").style.display = "block";
                 } else {
                     console.log('エラー');
                 }
@@ -87,14 +150,20 @@
                 //コンピューターの手
                 $('#com_hand').text('enemy:' + result[rand]);
                 if (rand == 0) {
-                    $('#judgement').text('lose');
-                    console.log('lose');
+                    // 負けの時
+                    document.getElementById("movie3").style.display = "block";
                 } else if (rand == 1) {
-                    $('#judgement').text('drow');
-                    console.log('drow');
+                    count = count + 1;
+                    console.log(count)
+                    // あいこの時
+                    document.getElementById("movie1").style.display = "block";
+                    if (count == 3) {
+                        // あいこが３回続いた時
+                        document.getElementById("movie1").style.display = "block";
+                    }
                 } else if (rand == 2) {
-                    $('#judgement').text('win');
-                    console.log('win');
+                    // 勝ちの時
+                    document.getElementById("movie2").style.display = "block";
                 } else {
                     console.log('エラー');
                 }
@@ -106,14 +175,20 @@
                 //コンピューターの手
                 $('#com_hand').text('enemy:' + result[rand]);
                 if (rand == 0) {
-                    $('#judgement').text('win');
-                    console.log('win');
+                    // 勝ちの時
+                    document.getElementById("movie2").style.display = "block";
                 } else if (rand == 1) {
-                    $('#judgement').text('lose');
-                    console.log('lose');
+                    // 負けの時
+                    document.getElementById("movie3").style.display = "block";
                 } else if (rand == 2) {
-                    $('#judgement').text('drow');
-                    console.log('drow');
+                    count = count + 1;
+                    console.log(count)
+                    // あいこの時
+                    document.getElementById("movie1").style.display = "block";
+                    if (count == 3) {
+                        // あいこが３回続いた時
+                        document.getElementById("movie1").style.display = "block";
+                    }
                 } else {
                     console.log('エラー');
                 }
