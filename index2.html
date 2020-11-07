@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="indec2.css">
+    <title>Document</title>
+</head>
+
+<body class="is-slide" id="page-animate">
+
+    <header>
+        <div class="gu-">
+            <li id="gu_btn">RUN</li>
+        </div>
+        <div class="enemy" id="com_hand">相手は？</div>
+        <div class="enemy" id="judgement">結果は？</div>
+    </header>
+    <main>
+
+        <div class="cho">
+            <li id="cho_btn">SCRUM</li>
+        </div>
+        <div class="par">
+            <li id="par_btn">LINEOUT</li>
+        </div>
+    </main>
+    <footer>
+        <article><a href="index1.html" class="navigate-anchor">BACK</a></article>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        /*設定１*/
+        // 画面が読み込まれた時、is-slideを外し、アニメーションさせる
+        $(window).on('load', function () {
+            $('body').removeClass('is-slide');
+        });
+
+        $(function () {
+            // ハッシュリンク(#)と別ウィンドウでページを開く場合は実行しない
+
+            $('a:not([href^="#"]):not([target])').on('click', function (e) {
+                e.preventDefault();         // ページ遷移を一旦キャンセル
+                url = $(this).attr('href'); // 遷移先のURLを取得
+
+                if (url !== '') {
+                    $('body').addClass('is-slide-in'); // 画面遷移前のアニメーション is-slide-in
+
+                    setTimeout(function () {
+                        window.location = url;  // 0.7秒後に取得したURLに遷移
+                    }, 800);
+                }
+                return false;
+            });
+
+        });
+    </script>
+    <script>
+        /*ジャンケンのscript*/
+        $(function () {
+            const result = ['グー', 'チョキ', 'パー'];
+            $('#gu_btn').on('click', function () {
+                // グー
+                let rand = Math.floor(Math.random() * 3);
+                console.log(rand);
+                //コンピューターの手
+                $('#com_hand').text('enemy:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('drow');
+                    console.log('drow');
+                } else if (rand == 1) {
+                    $('#judgement').text('win');
+                    console.log('win');
+                } else if (rand == 2) {
+                    $('#judgement').text('lose');
+                    console.log('lose');
+                } else {
+                    console.log('エラー');
+                }
+            });
+            $('#cho_btn').on('click', function () {
+                //チョキ
+                let rand = Math.floor(Math.random() * 3);
+                console.log(rand);
+                //コンピューターの手
+                $('#com_hand').text('enemy:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('lose');
+                    console.log('lose');
+                } else if (rand == 1) {
+                    $('#judgement').text('drow');
+                    console.log('drow');
+                } else if (rand == 2) {
+                    $('#judgement').text('win');
+                    console.log('win');
+                } else {
+                    console.log('エラー');
+                }
+            });
+            $('#par_btn').on('click', function () {
+                //パー
+                let rand = Math.floor(Math.random() * 3);
+                console.log(rand);
+                //コンピューターの手
+                $('#com_hand').text('enemy:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('win');
+                    console.log('win');
+                } else if (rand == 1) {
+                    $('#judgement').text('lose');
+                    console.log('lose');
+                } else if (rand == 2) {
+                    $('#judgement').text('drow');
+                    console.log('drow');
+                } else {
+                    console.log('エラー');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

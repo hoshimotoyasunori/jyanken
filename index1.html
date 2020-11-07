@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index1.css">
+    <title>Document</title>
+</head>
+
+<body class="is-slide" id="page-animate">
+
+    <header>
+    </header>
+    <main>
+        <section class="page_one">
+        </section>
+    </main>
+    <footer>
+        <article><a href="index2.html" class="navigate-anchor"><img class="ball" src="../キック/写真素材/ラグビーボール.png"
+                    alt="ボールの写真"></a></article>
+        <div class="click">Click here</div>
+        <p>
+            <copyrights>2016-2018 Cheeese Academy Fukuoka All RIghts Reserved.</copyrights>
+        </p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        /*設定１*/
+        // 画面が読み込まれた時、is-slideを外し、アニメーションさせる
+        $(window).on('load', function () {
+            $('body').removeClass('is-slide');
+        });
+
+        $(function () {
+            // ハッシュリンク(#)と別ウィンドウでページを開く場合は実行しない
+
+            $('a:not([href^="#"]):not([target])').on('click', function (e) {
+                e.preventDefault();         // ページ遷移を一旦キャンセル
+                url = $(this).attr('href'); // 遷移先のURLを取得
+
+                if (url !== '') {
+                    $('body').addClass('is-slide-in'); // 画面遷移前のアニメーション is-slide-in
+
+                    setTimeout(function () {
+                        window.location = url;  // 0.7秒後に取得したURLに遷移
+                    }, 700);
+                }
+                return false;
+            });
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

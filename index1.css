@@ -1,0 +1,111 @@
+html{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    height:100vh;
+    width: auto;
+}
+body{  
+    width: 100%;
+    height: 100%;
+    margin:0;
+    text-align:center;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../ラグビー/写真/rugby4_1040x410.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+}
+
+.is-slide{
+    
+    width: 100%;
+    height:100%;
+    
+}
+header{
+    text-align: center;
+    height: 10%;
+    width: 100%;
+}
+.page_one{
+    width: 100%;
+    height: 100%;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70%;
+    width: auto;
+
+}
+
+.ball{
+    width: 10%;
+    height: 40%;
+    opacity: 0;
+}
+.click{
+    color:black;
+}
+
+footer{
+    text-align: center;
+    width: 100%;
+    height: 20%;
+}
+
+.navigate-anchor{
+    width: 8%;
+    height: 50%;
+    color: #fff;
+}
+p{
+    font-size:8px;
+    text-align: center;
+    height:16px;
+    width: 100%;
+}
+
+#page-animate::before {
+ content: '';
+ position: fixed;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background-color: #333;
+ z-index: 9999;
+ pointer-events: none;
+ right: 100%;
+ -webkit-transition: right 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+ transition: right 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ #page-animate::after {
+ content: '';
+ position: fixed;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background-color: #333;
+ z-index: 9999;
+ pointer-events: none;
+ left: 100%;
+ -webkit-transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+ transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ #page-animate.is-slide-in::before {
+ right: 0;
+}
+ #page-animate.is-slide::after {
+ left: 0;
+}

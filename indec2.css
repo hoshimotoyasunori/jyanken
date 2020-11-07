@@ -1,0 +1,157 @@
+html{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    height:100vh;
+    width: 100vw;
+}
+body{  
+    width: 100%;
+    height: 100%;
+    margin:0;
+    text-align:center;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image:  url(../ラグビー/写真/top-page-file.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: .8;
+}
+.is-slide{
+    /*background-image: url(../ラグビー/写真/page2.JPG) ;*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height:100%;
+    opacity: 0.8;
+}
+
+header{
+    text-align: center;
+    height: 45%;
+    width: 100%;
+    margin-bottom: 5%;
+}
+.page_one{
+    width: 100%;
+    height: 100%;
+}
+.enemy{
+    font-size: 20%;
+    opacity: .3;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45%;
+    width:100%;
+
+}
+.gu-{
+    background-image: url(../ラグビー/写真/run.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.ball{
+    width: 10%;
+    height: 40%;
+    opacity: 1;
+}
+.navigate-anchor{
+    width: 8%;
+    height: 50%;
+    opacity: .3;
+}
+p{
+    font-size:8px;
+    text-align: center;
+    height:16px;
+    width: 100%;
+}
+.cho{
+    background-image: url(../ラグビー/写真/scrum.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+.par{
+    background-image: url(../ラグビー/写真/lineout.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+#gu_btn{
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    font-size: 100%;
+}
+#par_btn{
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    font-size: 100%;
+}
+#cho_btn{
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    font-size: 100%;
+}
+img{
+    opacity: 0;
+}
+li{
+    list-style: none;
+}
+
+#page-animate::before {
+ content: '';
+ position: fixed;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background-color: #333;
+ z-index: 9999;
+ pointer-events: none;
+ right: 100%;
+ -webkit-transition: right 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+ transition: right 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ #page-animate::after {
+ content: '';
+ position: fixed;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background-color: #333;
+ z-index: 9999;
+ pointer-events: none;
+ left: 100%;
+ -webkit-transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+ transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ #page-animate.is-slide-in::before {
+ right: 0;
+}
+ #page-animate.is-slide::after {
+ left: 0;
+}
